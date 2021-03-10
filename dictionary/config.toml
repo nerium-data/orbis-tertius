@@ -1,4 +1,4 @@
-baseURL = "http://localhost"
+baseURL = ""
 title = "Orbis Tertius"
 theme = "hugo-book-8"
 

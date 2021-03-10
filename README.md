@@ -12,7 +12,7 @@ We then use [Hugo](https://gohugo.io/) to generate a static HTML site from this 
 
 (Assuming macOS and homebrew)
 
-- Clone this repo and `cd` into it
+- Clone this repo and `cd` into it: `git clone https://github.com/nerium-data/orbis-tertius.git && cd orbis-tertius`
 - Create a python virtualenv and install with pip:
   ```sh
   python -m venv .venv
@@ -27,7 +27,7 @@ We then use [Hugo](https://gohugo.io/) to generate a static HTML site from this 
 - Command `orbis` invokes script to generate the Markdown, which is saved in `dictionary/content` initially
 - Hugo command to create HTML version of the data dictionary docs:
   ```sh
-  hugo -s dictionary -d ./public --cleanDestinationDir --minify
+  hugo -s dictionary -d ../public --cleanDestinationDir --minify
   ```
 
 Final Hugo output will be saved to `public` directory and can be served by any static site host.
@@ -36,7 +36,7 @@ Final Hugo output will be saved to `public` directory and can be served by any s
 
 - Clone repo and build the Docker image
   ```sh
-  git clone [TK]
+  git clone https://github.com/nerium-data/orbis-tertius.git
   cd orbis-tertius
   docker build --rm -t orbis .
 - Copy `.env.sample` to `.env` and edit the `$DATABASE_URL` and `$SCHEMAS` values to suit the desired documentation target database and schemas. `$SCHEMAS` defaults to `public`; you can specify multiple schema names separated by spaces -- see `.env.sample` for an example. [_Note_: be sure to remember that [Docker is weird about quotation marks in env files](https://dev.to/tvanantwerp/don-t-quote-environment-variables-in-docker-268h)]
