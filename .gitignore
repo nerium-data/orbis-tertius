@@ -1,0 +1,27 @@
+# Ignore generated directories
+*venv
+
+# Ignore generated files
+*.py[cod]
+__pycache__/
+
+# Ignore other specific files
+.project
+.pydevproject
+.settings
+.idea
+
+# Ignore build artifacts
+build
+dist
+*.egg-info
+.eggs/
+dictionary/content/*.md
+public/
+dictionary/public/
+
+.env
+.coverage
+htmlcov/
+.markdownlint.json
+.flake8

@@ -1,0 +1,14 @@
+.env
+.gitignore
+_junk_drawer/
+.venv/
+.eggs/
+.circleci/
+.vscode/
+build/
+dist/
+*.egg-info
+.coverage*htmlcov/
+dictionary/content/*
+public/
+dictionary/public/

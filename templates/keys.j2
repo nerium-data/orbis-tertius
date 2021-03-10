@@ -1,0 +1,17 @@
+{{ "\n" }}
+## Keys
+
+| Type | Column | Foreign Table | Join | Constraint Name |
+|------|--------|---------------|------|-----------------|
+{% for i in column_list -%}
+| {{ i["constraint_type"] }}
+{{- " | " -}}
+{{ i["column_name"] }}
+{{- " | " -}}
+{% if i["foreign_table"] %}[{{ i["foreign_table"] }}](../{{ i["foreign_table"] }}){% endif %}
+{{- " | " -}}
+{{ i["join"] if i["join"] }}
+{{- " | " -}}
+{{ i["constraint_name"] }}
+{{- " | " }}
+{% endfor %}

@@ -1,0 +1,9 @@
+{{ "\n" }}
+## Fields
+
+| Name | Data Type | Nulls Allowed | Default Value | Description |
+|------|-----------|---------------|---------------|-------------|
+{% for dict_item in column_list -%}
+|{% for key, value in dict_item.items() %} {{ value if value }} | 
+{%- endfor %}
+{% endfor %}

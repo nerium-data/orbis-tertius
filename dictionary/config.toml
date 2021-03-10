@@ -1,0 +1,9 @@
+baseURL = "http://localhost"
+title = "Orbis Tertius"
+theme = "hugo-book-8"
+
+pluralizeListTitles = false
+
+[params]
+  BookToC = false
+  BookSection = "*"

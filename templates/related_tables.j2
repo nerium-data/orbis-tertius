@@ -1,0 +1,13 @@
+{{ "\n" }}
+## Referenced by
+
+| Table Name | Join | Constraint Name |
+|------------|------|-----------------|
+{% for i in column_list -%}
+| [{{ i["table_name"] }}](../{{ i["table_name"] }})
+{{- " | " -}}
+{{ i["join"] if i["join"] }}
+{{- " | " -}}
+{{ i["fk_name"] }}
+{{- " | " }}
+{% endfor %}
