@@ -5,5 +5,5 @@ theme = "hugo-book-8"
 pluralizeListTitles = false
 
 [params]
-  BookToC = false
+  BookToC = true
   BookSection = "*"
