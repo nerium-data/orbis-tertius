@@ -26,7 +26,7 @@ def list_tables():
 
 def query_result(tbltup, query_name):
     """
-    Executes  query, returns results as list of dicts
+    Executes query, returns results as list of dicts
 
     Usage:
     `tbltup`: a tuple like (<schema_name>, <table_name>)
