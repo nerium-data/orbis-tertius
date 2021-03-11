@@ -4,8 +4,11 @@ import os
 from pathlib import Path
 
 import psycopg2
+import psycopg2.pool
 
-DBURL = os.getenv("DATABASE_URL", "postgres://postgres@localhost:5432/thomas")
+_DBURL = os.getenv("DATABASE_URL", "postgres://postgres@localhost:5432/thomas")
+DBURL = f"{_DBURL}?application_name=orbis"
+POOL = pool = psycopg2.pool.SimpleConnectionPool(1, 20, DBURL)
 
 
 def query(sql, params={}, db_url=DBURL, as_dict=False, auto=False):
@@ -16,7 +19,7 @@ def query(sql, params={}, db_url=DBURL, as_dict=False, auto=False):
     `params` takes a dict or tuple to pass to any bind parameters in the query
     `auto` = boolean value sets the `autocommit` property of the psycopg2 connection
     """
-    conn = psycopg2.connect(db_url)
+    conn = pool.getconn()
     with conn.cursor() as cur:
         conn.autocommit = auto
         cur.execute(sql, params)
@@ -27,6 +30,7 @@ def query(sql, params={}, db_url=DBURL, as_dict=False, auto=False):
             if as_dict:
                 cols = [desc[0] for desc in cur.description]
                 result = [dict(zip(cols, row)) for row in result]
+    pool.putconn(conn)
     return (status, result)
 
 
