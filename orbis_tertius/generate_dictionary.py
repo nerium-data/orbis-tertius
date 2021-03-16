@@ -8,7 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from raw import db
 
-SCHEMAS = os.getenv("SCHEMAS", "public").split(" ")
+SCHEMAS = tuple(os.getenv("SCHEMAS", "public").split(" "))
 
 
 def list_tables():
