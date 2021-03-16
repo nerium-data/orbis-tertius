@@ -17,10 +17,7 @@ AUTHOR = "Thomas Yager-Madden"
 REQUIRES_PYTHON = ">=3.6.0"
 VERSION = "0.1"
 
-REQUIRED = [
-    "jinja2",
-    "psycopg2-binary",
-]
+REQUIRED = ["jinja2", "psycopg2-binary", "sqla-raw"]
 
 # The rest you shouldn't have to touch too much
 # ----------------------------------------------
