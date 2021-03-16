@@ -7,7 +7,7 @@ select column_name
          where oid = (table_schema ||'.'|| table_name)::regclass
        ) as column_comment
   from information_schema.columns
- where table_schema = %(schm)s
-   and table_name = %(tbl)s
+ where table_schema = :schm
+   and table_name = :tbl
  order by table_name 
         , ordinal_position;

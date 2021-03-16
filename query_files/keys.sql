@@ -16,6 +16,6 @@ select distinct tc.constraint_type
   join information_schema.constraint_column_usage as ccu
     on ccu.constraint_name = tc.constraint_name
    and ccu.table_schema = tc.table_schema
- where tc.table_schema = %(schm)s
-   and tc.table_name = %(tbl)s
+ where tc.table_schema = :schm
+   and tc.table_name = :tbl
  order by constraint_type desc, foreign_table asc;

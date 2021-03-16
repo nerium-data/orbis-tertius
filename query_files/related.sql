@@ -10,7 +10,7 @@ select kcu.table_schema || '.' || kcu.table_name as table_name
     on ccu.constraint_name = tc.constraint_name
    and ccu.table_schema = tc.table_schema
  where constraint_type = 'FOREIGN KEY'
-   and ccu.table_schema = %(schm)s
-   and ccu.table_name = %(tbl)s
+   and ccu.table_schema = :schm
+   and ccu.table_name = :tbl
  order by 1
 ;

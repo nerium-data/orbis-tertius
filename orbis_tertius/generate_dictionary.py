@@ -6,7 +6,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-from orbis_tertius import db
+from raw import db
 
 SCHEMAS = os.getenv("SCHEMAS", "public").split(" ")
 
@@ -17,7 +17,7 @@ def list_tables():
     like (<schema_name>, <table_name>)
     """
     schema_param = dict(schemas=SCHEMAS)
-    result = db.query_by_name("tables", params=schema_param)[1]
+    result = db.result_by_name("tables", returns="tuples", **schema_param)
     tables = []
     for t in result:
         tables.append(t)
@@ -34,7 +34,7 @@ def query_result(tbltup, query_name):
     `query_name`: stem name of the query to be executed
     """
     table_params = dict(schm=tbltup[0], tbl=tbltup[1])
-    result = db.query_by_name(query_name, table_params, as_dict=True)[1]
+    result = db.result_by_name(query_name, **table_params)
     return result
 
 
